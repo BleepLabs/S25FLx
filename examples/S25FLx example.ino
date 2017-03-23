@@ -63,7 +63,9 @@ void loop() {
 
   ////////////////////////////////////////////////////write
   t=micros(); 
-  flash.write (location, random_bank, array_length); //the middle variable is a pointer meaning you put an 
+  flash.write (location, random_bank, array_length); //the middle variable is a pointer meaning you put a 
+  // reference to an array index's location in memory; the address to the start of an array can be the
+  // name of the array 'arrayVar', or a specific index '&arrayVar[x]'
   d=micros()-t;  
 
   Serial.println();
@@ -77,8 +79,9 @@ void loop() {
 
 
   t=micros();
-  flash.read(location, read_bank, array_length); //the middle variable is a pointer meaning you put an
-  //arrays name there but not it's location "[x]" 
+  flash.read(location, read_bank, array_length); //the middle variable is a pointer meaning you put a 
+  // reference to an array index's location in memory; the address to the start of an array can be the
+  // name of the array 'arrayVar', or a specific index '&arrayVar[x]'
   d=micros()-t;
 
   Serial.println();
